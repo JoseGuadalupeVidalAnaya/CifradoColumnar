@@ -18,28 +18,54 @@ import javafx.scene.control.TextField;
  */
 public class Controlador implements Initializable
 {
+
     Columnar c;
     @FXML
-    TextField men,clave,out;
+    TextField men, clave, out;
+
     @FXML
     void metodoCifrar(ActionEvent e)
     {
-        c.setClave(clave.getText());
-        c.setMensaje(men.getText());
-        out.setText(c.cifrar());
+        if (men.getText().isEmpty())
+        {
+            out.setText("Ingrese el mensaje a cifrar");
+        }
+        else if (clave.getText().isEmpty())
+        {
+            out.setText("Ingrese la clave para cifrar");
+        }
+        else
+        {
+            c.setClave(clave.getText());
+            c.setMensaje(men.getText());
+            out.setText(c.cifrar());
+        }
+
     }
+
     @FXML
     void metodoDecifrar(ActionEvent e)
     {
-        c.setClave(clave.getText());
-        c.setMensaje(men.getText());
-        out.setText(c.decifrar());
+        if (men.getText().isEmpty())
+        {
+            out.setText("Ingrese el mensaje a cifrar");
+        }
+        else if (clave.getText().isEmpty())
+        {
+            out.setText("Ingrese la clave para cifrar");
+        }
+        else
+        {
+            c.setClave(clave.getText());
+            c.setMensaje(men.getText());
+            out.setText(c.decifrar());
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        c=new Columnar();
+        c = new Columnar();
     }
 
 }
