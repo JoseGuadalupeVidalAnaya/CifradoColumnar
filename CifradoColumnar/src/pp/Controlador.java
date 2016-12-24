@@ -66,6 +66,13 @@ public class Controlador implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         c = new Columnar();
+        clave.setOnKeyTyped(e ->
+        {
+            if(!c.alfa.contains(e.getCharacter()))
+            {
+                e.consume();
+            }
+        });
     }
 
 }
