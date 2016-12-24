@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -18,21 +18,28 @@ import javafx.scene.control.Label;
  */
 public class Controlador implements Initializable
 {
-
+    Columnar c;
     @FXML
-    private Label label;
-
+    TextField men,clave,out;
     @FXML
-    private void handleButtonAction(ActionEvent event)
+    void metodoCifrar(ActionEvent e)
     {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        c.setClave(clave.getText());
+        c.setMensaje(men.getText());
+        out.setText(c.cifrar());
+    }
+    @FXML
+    void metodoDecifrar(ActionEvent e)
+    {
+        c.setClave(clave.getText());
+        c.setMensaje(men.getText());
+        out.setText(c.decifrar());
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        
+        c=new Columnar();
     }
 
 }
